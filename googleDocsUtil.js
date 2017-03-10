@@ -37,6 +37,7 @@ var googleDocsUtil = function() {
         var nodes = [];
         var lineCount = 0;
         var globalIndex = 0;
+        var selectedText = "";
         var paragraphrenderers = document.getElementsByClassName("kix-paragraphrenderer");
 
         if (containsUserCaretDom()) {
@@ -48,6 +49,7 @@ var googleDocsUtil = function() {
             var lineviews = paragraphrenderers[i].getElementsByClassName("kix-lineview");
             for (var j = 0; j < lineviews.length; j++) {
                 var lineText = "";
+                var selectionOverlays = lineviews[j].getElementsByClassName("kix-selection-overlay");
                 var wordhtmlgeneratorWordNodes = lineviews[j].getElementsByClassName("kix-wordhtmlgenerator-word-node");
                 for (var k = 0; k < wordhtmlgeneratorWordNodes.length; k++) {
                     var wordhtmlgeneratorWordNodeRect = wordhtmlgeneratorWordNodes[k].getBoundingClientRect();
@@ -68,9 +70,20 @@ var googleDocsUtil = function() {
                         lineIndex: lineText.length,
                         node: wordhtmlgeneratorWordNodes[k],
                         lineElement: lineviews[j],
-                        //rect: wordhtmlgeneratorWordNodeRect,
                         text: nodeText
                     });
+
+
+                    for (var l = 0; l < selectionOverlays.length; l++) {
+                        var selectionOverlay = selectionOverlays[l];
+                        var selectionRect = selectionOverlay.getBoundingClientRect();
+                        if (doesRectsOverlap(wordhtmlgeneratorWordNodeRect, selectionOverlay.getBoundingClientRect())) {
+                            var selectionStartIndex = getLocalCaretIndex(selectionRect.left - wordhtmlgeneratorWordNodeRect.left, wordhtmlgeneratorWordNodes[k], lineviews[j]);
+                            var selectionEndIndex = getLocalCaretIndex(selectionRect.left + selectionRect.width - wordhtmlgeneratorWordNodeRect.left, wordhtmlgeneratorWordNodes[k], lineviews[j]);
+                            selectedText += nodeText.substring(selectionStartIndex, selectionEndIndex);
+                        }
+                    }
+
                     globalIndex += nodeText.length;
                     lineText += nodeText;
                 }
@@ -81,6 +94,7 @@ var googleDocsUtil = function() {
         return {
             nodes: nodes,
             text: text,
+            selectedText: selectedText,
             caret: {
                 index: caretIndex,
                 lineIndex: caretLineIndex,
@@ -178,7 +192,6 @@ var googleDocsUtil = function() {
     //- - - - - - - - - - - - - - - - - - - - 
     //Google Document utils
     //- - - - - - - - - - - - - - - - - - - - 
-
     function findWordAtCaret(googleDocument) {
 
         var line = googleDocument.text[googleDocument.caret.line];
@@ -259,6 +272,7 @@ var googleDocsUtil = function() {
             }
         }
     }
+
 
     function getText(startIndex, endIndex, googleDocument) {
 
