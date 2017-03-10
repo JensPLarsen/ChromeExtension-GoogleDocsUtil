@@ -1,15 +1,25 @@
-var dictusGoogleDocsUtil = function() {
+var googleDocsUtil = function() {
 
     //- - - - - - - - - - - - - - - - - - - - 
     //General
     //- - - - - - - - - - - - - - - - - - - - 
 
+    //Google Docs like to add \u200B and non breaking spaces to make sure the browser shows the text correct. 
+    //When getting the text, we would prefer to get clean text. 
     function cleanDocumentText(text) {
         var cleanedText = text.replace(/\u200B/g, '');
         var nonBreakingSpaces = String.fromCharCode(160);
         var regex = new RegExp(nonBreakingSpaces, "g");
         cleanedText = cleanedText.replace(regex, ' ');
         return cleanedText;
+    }
+
+    function getValidCharactersRegex() {
+        return '\\wæøåÆØÅéáÉÁöÖ';
+    }
+
+    function isWordBoundary(character) {
+        return character.match('[' + getValidCharactersRegex() + ']') == null;
     }
 
     //- - - - - - - - - - - - - - - - - - - - 
@@ -190,18 +200,18 @@ var dictusGoogleDocsUtil = function() {
         //Finds the start of the word
         var character = line[startIndex];
         //If we are at the end of the word, the startIndex will result in a word boundary character.
-        if (dictusGlobal.isWordBoundary(character) && startIndex > 0) {
+        if (isWordBoundary(character) && startIndex > 0) {
             startIndex--;
             character = line[startIndex];
         }
-        while (!dictusGlobal.isWordBoundary(character) && startIndex > 0) {
+        while (!isWordBoundary(character) && startIndex > 0) {
             startIndex--;
             character = line[startIndex];
         }
 
         //Finds the end of the word
         character = line[endIndex];
-        while (!dictusGlobal.isWordBoundary(character) && endIndex < line.length - 1) {
+        while (!isWordBoundary(character) && endIndex < line.length - 1) {
             endIndex++;
             character = line[endIndex];
         }
