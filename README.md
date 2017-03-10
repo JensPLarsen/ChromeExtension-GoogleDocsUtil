@@ -29,9 +29,15 @@ function cleanDocumentText(text);
 ```
 
 ##function getGoogleDocument()
+** Desciption ** 
 The main call to get all the information about the Google Docs document.
 
-returns: an element containing
+** Arguments ** 
+-
+
+** Returns ** 
+An element containing
+```
 {
   nodes: /* Google Docs have all its text in span elements of class "kix-wordhtmlgenerator-word-node", the nodes is a list of metadata about each node */
   [{
@@ -49,44 +55,62 @@ returns: an element containing
     line /*the line the caret is on*/
   }
 }
+```
 
 ##function findWordAtCaret(googleDocument)
+** Desciption ** 
 Returns the word the caret is at. If there is no word at the cursor, it will return an empty string.
 
+** Arguments ** 
 googleDocument: Returned from getGoogleDocument()
 
-returns: A string of the found word at the cursor
+** Returns ** 
+A string of the found word at the cursor
 
 ##function getText(startIndex, endIndex, googleDocument)
+** Desciption ** 
 Get the text within from the start index to end index
 
+** Arguments ** 
 startIndex: The start index in the text
 endIndex: The end index in the text
 googleDocument: The returned object from getGoogleDocument() 
 
-returns: A string of the found text
+** Returns ** 
+A string of the found text
 
 
 ##function highlight(startIndex, endIndex, googleDocument)
+** Desciption ** 
 Creates an highlight starting at startIndex and ends at endIndex. If the text changes remove the highlight and set a new highlight
 
+** Arguments ** 
 startIndex: The start index in the text
 endIndex: The end index in the text
 googleDocument: Returned from getGoogleDocument()
 
-returns: void
+** Returns ** 
+void
  
 ##function removeHighlightNodes()
+** Desciption ** 
 Removes all highlights
 
-returns: void
+** Arguments ** 
+- 
+
+** Returns ** 
+void
 
 ##function cleanDocumentText(text)
+** Desciption ** 
 If the text from the document is recived from elsewhere, you can use this method to clean the text of nonsensable characters.
  
+** Arguments ** 
 text: Text from the Google Docs document recived from elsewhere. 
 
-returns: The text cleaned of \u200B and non breaking spaces.
+** Returns ** 
+The text cleaned of \u200B and non breaking spaces.
  
  
 
