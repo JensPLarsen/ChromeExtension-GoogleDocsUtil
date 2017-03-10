@@ -133,6 +133,41 @@ text: Text from the Google Docs document recived from elsewhere.
 
 The text cleaned of \u200B and non breaking spaces.
 
+# Usage
+
+```
+//contentScript.js
+
+//Get the current state of the Google Docs document. After a change to the google docs document call the getGoogleDocument() again to get the changes.
+var googleDocument = googleDocsUtil.getGoogleDocument();
+
+//All the text is in the array googleDocument.text
+//NOTICE: if the Google Docs document contains multiple pages, not all the pages may be loaded
+var loadedText = "";
+for(var i= 0; i < googleDocument.text.length; i++)
+{
+   console.log("Text at line " + i + ": " + googleDocument.text[i];
+}
+
+//Get the word at the caret
+var currentWord = googleDocsUtil.getWordAtCaret(googleDocument);
+console.log("The caret is at index: " + googleDocument.caret.index);
+console.log("The caret is on line: " + googleDocument.caret.line);
+console.log("The caret is at the index on line: " + googleDocument.caret.lineIndex);
+console.log("The caret is at the word: " + currentWord);
+
+//Gets the text from index 10 to 20
+var foundText = googleDocsUtil.getText(10, 20, googleDocument);
+
+//Higlights the index 10 to 20
+googleDocsUtil.highlight(10, 20, googleDocument);
+
+//Removes the highlight
+//googleDocsUtil.removeHighlightNodes();
+
+```
+
+
 # Limitations
 It can only get the text of what is loaded in Google Docs. 
 When you open a Google Docs document, Google Docs only load the text of first page. The rest of the text is not loaded before the user scrolls down.
