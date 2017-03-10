@@ -80,6 +80,13 @@ None
 An element containing
 ```
 {
+  text: [] /*An array of strings, each string is a line in the document. Means the number of strings is the number of lines in the document*/ 
+  selectedText /* Contains the selected text, if no text is selected it is an empty string */
+  caret: {
+    index /* index of the caret in the document */
+    lineIndex /* index of the caret on the current line */
+    line /*the line the caret is on*/
+  },
   nodes: /* Google Docs have all its text in span elements of class "kix-wordhtmlgenerator-word-node", the nodes is a list of metadata about each node */
   [{
     index /* The start index of the node */
@@ -88,14 +95,7 @@ An element containing
 	node /* A reference to the "kix-wordhtmlgenerator-word-node" containing the actual text*/
 	lineElement /* A reference to the "kix-lineview" which contains the node element*/
 	text /* The text the node contains */
-  }],
-  text: [] /*An array of strings, each string is a line in the document. Means the number of strings is the number of lines in the document*/ 
-  selectedText /* Contains the selected text */
-  caret: {
-    index /* index of the caret in the document */
-    lineIndex /* index of the caret on the current line */
-    line /*the line the caret is on*/
-  }
+  }]
 }
 ```
 
@@ -177,7 +177,6 @@ It can only get the text of what is loaded in Google Docs.
 When you open a Google Docs document, Google Docs only load the text of first page. The rest of the text is not loaded before the user scrolls down.
 
 # Not implemented
-- Get the selected text
 - Get other peoples caret index in the same document
 - Get other peoples selected text in the same document
 
