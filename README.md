@@ -2,13 +2,19 @@
 When writing a Chrome Extension, in some cases you want to work with Google Docs. 
 But working with Google Docs is not easy, it does not follow the normal way of interacting with homepages from a Chrome Extension. 
 
-This googleDocsUtil.js script is made to help interacting with a Google Docs document.
+This googleDocsUtil.js script is made to help interacting with a Google Docs document. It works as a Content Script and should be accessed another of your Content Scripts.
+
 
 # Features
 - Get the text of the Google Docs document
 - Get the caret index in the Google Docs document
 - Highlight from/to index in the Google Docs document
 - Remove highlight
+
+# Installation
+1. Add the googleDocsUtil.js to your Google Extension folder
+2. Add the googleDocsUtil.js as a content script in your manifest.json
+
 
 # Limitations
 It can only get the text of what is loaded in Google Docs. 
