@@ -1,8 +1,23 @@
 # ChromeExtension-GoogleDocsUtil
 When writing a Chrome Extension, in some cases you want to work with Google Docs. 
-But working with Google Docs is not easy, it does not follow the normal way of interacting with a homepage from a chrome extension. 
+But working with Google Docs is not easy, it does not follow the normal way of interacting with homepages from a Chrome Extension. 
 
-This JS script is made to help getting the text and caret position in a Google Docs document from a Chrome Extension. 
+This googleDocsUtil.js script is made to help interacting with a Google Docs document.
+
+# Features
+Get the text of the Google Docs document
+Get the caret index in the Google Docs document
+Highlight from/to index in the Google Docs document
+Remove highlight
+
+# Limitations
+It can only get the text of what is loaded in Google Docs. 
+If you have many pages in a Google Docs, the first time you open the document Google Docs will only load the text of first page. This means we can only get the text of the first page before the user scrolls to the bottom of the page. 
+
+# Not implemented
+Get the selected text
+Get the other peoples caret index
+ 
 
 # MIT License 
 Copyright (c) 2017 Dictus ApS
