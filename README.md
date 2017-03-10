@@ -2,7 +2,7 @@
 When writing a Chrome Extension, in some cases you want to work with Google Docs. 
 But working with Google Docs is not easy, it does not follow the normal way of interacting with homepages from a Chrome Extension. 
 
-This googleDocsUtil.js script is made to help interacting with a Google Docs document. It works as a Content Script and should be accessed another of your Content Scripts.
+This googleDocsUtil.js script is made to help interacting with a Google Docs document. It works as a Content Script and should be accessed from another of your Content Scripts.
 
 
 # Features
