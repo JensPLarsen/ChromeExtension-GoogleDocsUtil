@@ -9,6 +9,7 @@ This googleDocsUtil.js script is made to help interacting with a Google Docs doc
 - Get the text of the Google Docs document
 - Get the caret index in the Google Docs document
 - Get the current word at the caret
+- Get the user selection in the Google Docs document
 - Highlight from/to index in the Google Docs document
 - Remove highlight
 
