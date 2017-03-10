@@ -29,8 +29,12 @@ var googleDocument = googleDocsUtil.getGoogleDocument();
 var loadedText = "";
 for(var i= 0; i < googleDocument.text.length; i++)
 {
-   console.log("Text at line " + i + ": " + googleDocument.text[i];
+   console.log("Text at line " + i + ": " + googleDocument.text[i]);
 }
+
+//The selected text
+console.log("The selected text is: " + googleDocument.selectedText);
+
 
 //Get the word at the caret
 var currentWord = googleDocsUtil.getWordAtCaret(googleDocument);
@@ -86,6 +90,7 @@ An element containing
 	text /* The text the node contains */
   }],
   text: [] /*An array of strings, each string is a line in the document. Means the number of strings is the number of lines in the document*/ 
+  selectedText /* Contains the selected text */
   caret: {
     index /* index of the caret in the document */
     lineIndex /* index of the caret on the current line */
