@@ -5,18 +5,18 @@ But working with Google Docs is not easy, it does not follow the normal way of i
 This googleDocsUtil.js script is made to help interacting with a Google Docs document.
 
 # Features
-Get the text of the Google Docs document
-Get the caret index in the Google Docs document
-Highlight from/to index in the Google Docs document
-Remove highlight
+- Get the text of the Google Docs document
+- Get the caret index in the Google Docs document
+- Highlight from/to index in the Google Docs document
+- Remove highlight
 
 # Limitations
 It can only get the text of what is loaded in Google Docs. 
 If you have many pages in a Google Docs, the first time you open the document Google Docs will only load the text of first page. This means we can only get the text of the first page before the user scrolls to the bottom of the page. 
 
 # Not implemented
-Get the selected text
-Get the other peoples caret index
+- Get the selected text
+- Get the other peoples caret index
  
 
 # MIT License 
