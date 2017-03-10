@@ -39,25 +39,25 @@ It returns an element containing
   }
 }
 */
-function getGoogleDocument();
+** function getGoogleDocument(); **
 
 /* Returns the word the caret is at. If there is no word at the cursor, it will return an empty string.
 googleDocument: Returned from getGoogleDocument() */
-function findWordAtCaret(googleDocument);
+**function findWordAtCaret(googleDocument);**
 
 /* Get the text within from the start index to end index
 googleDocument: Returned from getGoogleDocument() */
-function getText(startIndex, endIndex, googleDocument);
+**function getText(startIndex, endIndex, googleDocument);**
 
 /* Creates an highlight starting at startIndex and ends at endIndex. If the text changes remove the highlight and set a new highlight
 googleDocument: Returned from getGoogleDocument()*/
-function highlight(startIndex, endIndex, googleDocument);
+**function highlight(startIndex, endIndex, googleDocument);**
 
 /* Removes all highlights*/
-function removeHighlightNodes();
+**function removeHighlightNodes();**
 
 /* If the text from the document is recived from elsewhere, you can use this method to clean the text of nonsensable characters.*/
-function cleanDocumentText(text);
+**function cleanDocumentText(text);**
  
 ```
 
