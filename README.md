@@ -20,7 +20,7 @@ This googleDocsUtil.js script is made to help interacting with a Google Docs doc
 googleDocsUtil provides the following Interface: 
 
 ```
-function getGoogleDocument();
+function getGoogleDocument(); /* Returns a googleDocument object used below*/
 function findWordAtCaret(googleDocument);
 function getText(startIndex, endIndex, googleDocument);
 function highlight(startIndex, endIndex, googleDocument);
@@ -81,7 +81,9 @@ Get the text within from the start index to end index
 **Arguments** 
 
 startIndex: The start index in the text
+
 endIndex: The end index in the text
+
 googleDocument: The returned object from getGoogleDocument() 
 
 **Returns** 
@@ -97,7 +99,9 @@ Creates an highlight starting at startIndex and ends at endIndex. If the text ch
 **Arguments** 
 
 startIndex: The start index in the text
+
 endIndex: The end index in the text
+
 googleDocument: Returned from getGoogleDocument()
 
 **Returns** 
