@@ -18,9 +18,20 @@ This googleDocsUtil.js script is made to help interacting with a Google Docs doc
 
 # Interface
 googleDocsUtil provides the following Interface: 
+
 ```
-/* The main call to get all the information about the google docs document.
-It returns an element containing
+function getGoogleDocument();
+function findWordAtCaret(googleDocument);
+function getText(startIndex, endIndex, googleDocument);
+function highlight(startIndex, endIndex, googleDocument);
+function removeHighlightNodes();
+function cleanDocumentText(text);
+```
+
+##function getGoogleDocument()
+The main call to get all the information about the Google Docs document.
+
+returns: an element containing
 {
   nodes: /* Google Docs have all its text in span elements of class "kix-wordhtmlgenerator-word-node", the nodes is a list of metadata about each node */
   [{
@@ -38,28 +49,47 @@ It returns an element containing
     line /*the line the caret is on*/
   }
 }
-*/
-** function getGoogleDocument(); **
 
-/* Returns the word the caret is at. If there is no word at the cursor, it will return an empty string.
-googleDocument: Returned from getGoogleDocument() */
-**function findWordAtCaret(googleDocument);**
+##function findWordAtCaret(googleDocument)
+Returns the word the caret is at. If there is no word at the cursor, it will return an empty string.
 
-/* Get the text within from the start index to end index
-googleDocument: Returned from getGoogleDocument() */
-**function getText(startIndex, endIndex, googleDocument);**
+googleDocument: Returned from getGoogleDocument()
 
-/* Creates an highlight starting at startIndex and ends at endIndex. If the text changes remove the highlight and set a new highlight
-googleDocument: Returned from getGoogleDocument()*/
-**function highlight(startIndex, endIndex, googleDocument);**
+returns: A string of the found word at the cursor
 
-/* Removes all highlights*/
-**function removeHighlightNodes();**
+##function getText(startIndex, endIndex, googleDocument)
+Get the text within from the start index to end index
 
-/* If the text from the document is recived from elsewhere, you can use this method to clean the text of nonsensable characters.*/
-**function cleanDocumentText(text);**
+startIndex: The start index in the text
+endIndex: The end index in the text
+googleDocument: The returned object from getGoogleDocument() 
+
+returns: A string of the found text
+
+
+##function highlight(startIndex, endIndex, googleDocument)
+Creates an highlight starting at startIndex and ends at endIndex. If the text changes remove the highlight and set a new highlight
+
+startIndex: The start index in the text
+endIndex: The end index in the text
+googleDocument: Returned from getGoogleDocument()
+
+returns: void
  
-```
+##function removeHighlightNodes()
+Removes all highlights
+
+returns: void
+
+##function cleanDocumentText(text)
+If the text from the document is recived from elsewhere, you can use this method to clean the text of nonsensable characters.
+ 
+text: Text from the Google Docs document recived from elsewhere. 
+
+returns: The text cleaned of \u200B and non breaking spaces.
+ 
+ 
+
 
 # Limitations
 It can only get the text of what is loaded in Google Docs. 
