@@ -135,12 +135,12 @@ The text cleaned of \u200B and non breaking spaces.
 
 # Limitations
 It can only get the text of what is loaded in Google Docs. 
-If you have many pages in a Google Docs, the first time you open the document Google Docs will only load the text of first page. This means we can only get the text of the first page before the user scrolls to the bottom of the page. 
+When you open a Google Docs document, Google Docs only load the text of first page. The rest of the text is not loaded before the user scrolls down.
 
 # Not implemented
 - Get the selected text
-- Get the other peoples caret index
- 
+- Get other peoples caret index in the same document
+- Get other peoples selected text in the same document
 
 # MIT License 
 Copyright (c) 2017 Dictus ApS
