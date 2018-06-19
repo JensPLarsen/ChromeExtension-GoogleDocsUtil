@@ -10,6 +10,7 @@
         }
     ],
     "permissions" : [
+        "declarativeContent",
         "activeTab"
     ],
     "browser_action": {
