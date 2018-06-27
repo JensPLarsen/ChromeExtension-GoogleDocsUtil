@@ -13,8 +13,8 @@ This googleDocsUtil.js script is made to help interacting with a Google Docs doc
 - Highlight from/to index in the Google Docs document
 - Remove highlight
 
-# Installation
-Please look into at the ![sample-extension](/sample-extension) for installation. 
+# Example
+Please see ![sample-extension](/sample-extension) for a fully working Chrome Extension which can get the text from a Google Doc page. 
 
 # Usage
 
