@@ -53,7 +53,6 @@ var googleDocsUtil = function() {
                 var wordhtmlgeneratorWordNodes = lineviews[j].getElementsByClassName("kix-wordhtmlgenerator-word-node");
                 for (var k = 0; k < wordhtmlgeneratorWordNodes.length; k++) {
                     var wordhtmlgeneratorWordNodeRect = wordhtmlgeneratorWordNodes[k].getBoundingClientRect();
-                    wordhtmlgeneratorWordNodeRect.left
                     if (caretRect) {
                         if (doesRectsOverlap(wordhtmlgeneratorWordNodeRect, caretRect)) {
                             var caretXStart = caretRect.left - wordhtmlgeneratorWordNodeRect.left;
@@ -265,7 +264,6 @@ var googleDocsUtil = function() {
                 }
 
                 if (endIndex < googleDocument.nodes[i].index + googleDocument.nodes[i].text.length) {
-                    var localIndex = endIndex - googleDocument.nodes[i].index;
                     rightPosOffset = getPositionOfIndex(endIndex - googleDocument.nodes[i].index, googleDocument.nodes[i].node, googleDocument.nodes[i].lineElement);
                 }
                 createHighlightNode(nodeRect.left - parentRect.left + leftPosOffset, nodeRect.top - parentRect.top, rightPosOffset - leftPosOffset, nodeRect.height, googleDocument.nodes[i].lineElement);
