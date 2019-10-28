@@ -16,7 +16,7 @@ export default (function () {
   // Google Docs like to add \u200B, \u200C (&zwnj) and non breaking spaces to make sure the browser shows the text correct.
   // When getting the text, we would prefer to get clean text.
   function cleanDocumentText(text) {
-    var cleanedText = text.replace(/\u200B\u200c/g, '');
+    var cleanedText = text.replace(/[\u200B\u200C]/g, '');
     var nonBreakingSpaces = String.fromCharCode(160);
     var regex = new RegExp(nonBreakingSpaces, 'g');
     cleanedText = cleanedText.replace(regex, ' ');
