@@ -390,7 +390,10 @@ export default (function () {
     var highlightNodes = document.querySelectorAll(
       '.dictus_highlight_node'
     );
-    while (highlightNodes.length > 0) highlightNodes[0].remove();
+    for(i = 0; i < highlightNodes.length; i++)
+    {
+            highlightNodes[i].remove();
+    }     
   }
 
   //Index: The index on the local element
