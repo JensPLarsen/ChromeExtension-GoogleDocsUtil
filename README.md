@@ -1,6 +1,6 @@
 # WARNING: MAY NO LONGER WORK AFTER JULY 2021
 
-The Google Docs team have recently announced they will change how they render Google Docs. 
+The Google Workspace team have recently announced they will change how they render Google Docs. 
 
 "... migrating the underlying technical implementation of Docs from the current HTML-based rendering approach to a canvas-based approach to improve performance and improve consistency in how content appears across different platforms" - https://workspaceupdates.googleblog.com/2021/05/Google-Docs-Canvas-Based-Rendering-Update.html
 
